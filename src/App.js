@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
+import { createStore } from 'redux';
+import AppReducer from './reducers/appState';
 import Grid  from './Grid';
+
+const store = createStore(
+	AppReducer
+);
 // import './App.css';
 
 // class App extends Component {
@@ -23,7 +28,7 @@ import Grid  from './Grid';
 //   }
 // }
 const App = () => (
-  <Provider store={configureStore}>
+  <Provider store={store}>
     <Grid />
   </Provider>
 );

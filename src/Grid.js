@@ -9,20 +9,11 @@ import {
 class Grid extends Component {
   static propTypes = {
     loadMore: PropTypes.func.isRequired,
+    startArray: PropTypes.object.isRequired,
+    iterationCount: PropTypes.object.isRequired,
   }
   constructor(props) {
     super(props); 
-    this.state = {
-      startArray: [
-        'a',
-        'b',
-        'c',
-        'd',
-        'e',
-        'f'
-      ],
-      iterationCount: 0
-    }
   }
 
   loadButton = (e) => {
@@ -32,7 +23,7 @@ class Grid extends Component {
     loadMore();
   }
   render() {
-    const displayArr = displayArray(this.state.startArray, this.state.iterationCount);
+    const displayArr = displayArray(this.props.startArray, this.props.iterationCount);
     return (
       <div class="grid">
         {displayArr.map((value, index) => (
@@ -44,10 +35,13 @@ class Grid extends Component {
     );
   }
 }
+const mapStateToProps = state => ({ 
+  startArray: state.startArray,
+  iterationCount: state.iterationCount
+ });
+const mapDispatchToProps = dispatch => ({
+  loadMore: () => dispatch(loadMore()),
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   loadMore: () => dispatch(loadMore()),
-// });
-
-// export default connect( mapDispatchToProps)(Grid);
-export default Grid;
+export default connect( mapStateToProps,mapDispatchToProps)(Grid);
+// export default Grid;

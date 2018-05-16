@@ -7,7 +7,13 @@ const initialState = {
 		  'c',
 		  'd',
 		  'e',
-		  'f'
+		  'f',
+			'g',
+		  'h',
+		  'i',
+		  'j',
+		  'k',
+		  'l'
 		],
   iterationCount: 0
 };
