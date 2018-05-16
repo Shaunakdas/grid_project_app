@@ -29,8 +29,10 @@ class Grid extends Component {
         {displayArr.map((value, index) => (
             <div class="cell">{value}</div>
           ))}
-        <div class="cell"><button 
-              onClick={this.loadButton}>Load More</button></div>
+        <div class="cell">
+          <button class="button"
+              onClick={this.loadButton}>Load More</button>
+        </div>
       </div>
     );
   }
@@ -44,4 +46,3 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect( mapStateToProps,mapDispatchToProps)(Grid);
-// export default Grid;
