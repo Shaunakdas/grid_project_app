@@ -9,8 +9,8 @@ import {
 class Grid extends Component {
   static propTypes = {
     loadMore: PropTypes.func.isRequired,
-    startArray: PropTypes.object.isRequired,
-    iterationCount: PropTypes.object.isRequired,
+    startArray: PropTypes.array.isRequired,
+    iterationCount: PropTypes.number.isRequired,
   }
   constructor(props) {
     super(props); 
@@ -25,13 +25,15 @@ class Grid extends Component {
   render() {
     const displayArr = displayArray(this.props.startArray, this.props.iterationCount);
     return (
-      <div class="grid">
+      <div className="grid">
         {displayArr.map((value, index) => (
-            <div class="cell">{value}</div>
+            <div className="cell">{value}</div>
           ))}
-        <div class="cell">
-          <button class="button"
-              onClick={this.loadButton}>Load More</button>
+        <div className="cell">
+          <button className="button"
+              onClick={this.loadButton}>
+              Load More
+          </button>
         </div>
       </div>
     );
