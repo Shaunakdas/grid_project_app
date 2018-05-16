@@ -1,0 +1,1 @@
+export const LOAD_MORE = 'button/LOAD_MORE';
